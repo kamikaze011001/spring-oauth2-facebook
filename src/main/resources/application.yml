@@ -1,14 +1,11 @@
-debug: true
 server:
-  port: 80
-  servlet:
-    context-path: /
+  port: 8080
      
 spring:
   datasource:
-    password: password
-    url: jdbc:mysql://localhost:3306/sales
-    username: root
+    password: ${DB_PASSWORD}
+    url: jdbc:mysql://${DB_HOST}:3306/${DB_NAME}
+    username: ${DB_USERNAME}
   jpa:
     hibernate:
       ddl-auto: none
@@ -18,8 +15,8 @@ spring:
       client:
         registration:
          facebook:
-          clientId: YOUR_FACEBOOK_APP_ID
-          clientSecret: YOUR_FACEBOOK_APP_SECRET
+          clientId: ${FACEBOOK_CLIENT_ID}
+          clientSecret: ${FACEBOOK_CLIENT_SECRET}
           scope:
            - email
            - public_profile      
